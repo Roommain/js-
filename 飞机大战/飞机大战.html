@@ -138,6 +138,22 @@
             oImg.style.left = left + 'px';
             oImg.style.top = top + 'px';
         };
+        
+                //手机触摸移动事件
+        var plane = wrap.getElementsByClassName("plane")[0];
+        var endTouchY = 0;
+        var endTouchX = 0;
+        plane.addEventListener('touchmove', function(ev){
+            ev = ev ||window.event;
+            ev.preventDefault();
+            var ev = ev.touches[0];
+            plane.style.top = (ev.pageY-35)+'px';
+            plane.style.left = (ev.pageX-35)+'px';
+            endTouchX = ev.pageX;
+            endTouchY = ev.pageY;
+        },false);
+        
+        
         fire(oImg,leve);
         return oImg;
     }
